@@ -13,6 +13,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Rota de exibição do formulário de login
+Route::get('/login', 'Auth\LoginController@showLoginForm')->name('login');
+// Rota de execução do login
+Route::post('/login', 'Auth\LoginController@login');
+// Rota de logout
+Route::post('/logout', 'Auth\LoginController@logout')->name('logout');
+
 Route::middleware(['auth'])->group(function () {
     Route::resource('users', 'UserController');
     Route::resource('posts', 'PostController');

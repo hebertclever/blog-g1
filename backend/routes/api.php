@@ -19,6 +19,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+// Rotas para autenticação
+Route::post('/login', '\App\Http\Controllers\Auth\LoginController@login');
+Route::middleware('auth:sanctum')->post('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
+
 // Grupo de rotas protegidas pelo middleware auth:sanctum
 Route::middleware(['auth:sanctum'])->group(function () {
 
