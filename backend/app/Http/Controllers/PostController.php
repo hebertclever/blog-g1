@@ -27,15 +27,13 @@ class PostController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-    {
-        $data = $request->all();
+{
+    $data = $request->all();
 
-        $data["password"] = bcrypt($request->password);
+    $post = Posts::create($data);
 
-        $posts = posts::create($data);
-
-        return $posts;
-    }
+    return $post;
+}
 
     /**
      * Display the specified resource.

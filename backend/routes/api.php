@@ -23,12 +23,12 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::middleware(['auth:sanctum'])->group(function () {
 
     // Rotas para os usuários
-    Route::resource('users', 'UserController');
+    Route::apiResource('users', '\App\Http\Controllers\UserController');
 
     // Rotas para os posts
-    Route::resource('posts', 'PostController');
+    Route::apiResource('posts', '\App\Http\Controllers\PostController');
 
     // Rotas para os comentários
     // Os comentários estão aninhados dentro de posts neste exemplo
-    Route::resource('posts.comments', 'CommentController');
+    Route::apiResource('posts.comments', '\App\Http\Controllers\CommentController');
 });

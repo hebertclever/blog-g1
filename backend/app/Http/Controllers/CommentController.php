@@ -27,22 +27,20 @@ class CommentController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-    {
-        $data = $request->all();
+{
+    $data = $request->all();
 
-        $data["password"] = bcrypt($request->password);
+    $comment = comments::create($data);
 
-        $comment = comments::create($data);
-
-        return $comment;
-    }
+    return $comment;
+}
 
     /**
      * Display the specified resource.
      */
     public function show(string $id)
     {
-        $comment = comments::findOrFail($id);
+        $comment = Comments::findOrFail($id);
         return $comment;
     }
 
