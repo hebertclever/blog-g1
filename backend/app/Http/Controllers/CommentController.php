@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\comments;
 use Illuminate\Http\Request;
 
 class CommentController extends Controller
@@ -11,7 +12,7 @@ class CommentController extends Controller
      */
     public function index()
     {
-        //
+        return comments::all();
     }
 
     /**
@@ -27,7 +28,13 @@ class CommentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+
+        $data["password"] = bcrypt($request->password);
+
+        $comment = comments::create($data);
+
+        return $comment;
     }
 
     /**
@@ -35,7 +42,8 @@ class CommentController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $comment = comments::findOrFail($id);
+        return $comment;
     }
 
     /**
@@ -51,7 +59,17 @@ class CommentController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $comment = comments::findOrFail($id);
+
+        $data = $request->all();
+
+        if ($request->password) {
+            $data["password"] = bcrypt($request->password);
+        }
+
+        $comment->update($data);
+
+        return $comment;
     }
 
     /**
@@ -59,6 +77,9 @@ class CommentController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $comment = comments::findOrFail($id);
+        $comment->delete();
+
+        return response()->json([], 204);
     }
 }
