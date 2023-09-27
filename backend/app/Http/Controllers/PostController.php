@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\posts;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -11,7 +12,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
+        return posts::all();
     }
 
     /**
@@ -27,7 +28,13 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+
+        $data["password"] = bcrypt($request->password);
+
+        $posts = posts::create($data);
+
+        return $posts;
     }
 
     /**
@@ -35,7 +42,8 @@ class PostController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $posts = posts::findOrFail($id);
+        return $posts;
     }
 
     /**
@@ -51,7 +59,17 @@ class PostController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $posts = posts::findOrFail($id);
+
+        $data = $request->all();
+
+        if ($request->password) {
+            $data["password"] = bcrypt($request->password);
+        }
+
+        $posts->update($data);
+
+        return $posts;
     }
 
     /**
@@ -59,6 +77,9 @@ class PostController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $posts = posts::findOrFail($id);
+        $posts->delete();
+
+        return response()->json([], 204);
     }
 }
