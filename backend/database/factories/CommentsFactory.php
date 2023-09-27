@@ -22,7 +22,7 @@ class CommentsFactory extends Factory
                 return \App\Models\User::factory()->create()->id;
             },
             'post_id' => function () {
-                return \App\Models\Post::factory()->create()->id;
+                return \App\Models\Posts::factory()->create()->id;
             },
 
         ];
