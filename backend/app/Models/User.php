@@ -7,6 +7,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
+
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
@@ -41,14 +42,22 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+<<<<<<< HEAD:backend/app/Models/User.php
+=======
     /**
      * Get all posts by the user.
      */
+>>>>>>> 1919ca07aaa50a4d73dcd7b26c3ee1049a90a869:backend/app/Models/Users.php
     public function posts()
     {
         return $this->hasMany(Post::class);
     }
 
+<<<<<<< HEAD:backend/app/Models/User.php
+    public function comments()
+    {
+        return $this->hasMany(comments::class);
+=======
     /**
      * Get all comments by the user.
      */
@@ -86,5 +95,6 @@ class User extends Authenticatable
     public function setPasswordAttribute($password)
     {
         $this->attributes['password'] = bcrypt($password);
+>>>>>>> 1919ca07aaa50a4d73dcd7b26c3ee1049a90a869:backend/app/Models/Users.php
     }
 }
