@@ -5,10 +5,17 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\posts>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Post>
  */
-class PostsFactory extends Factory
+class PostFactory extends Factory
 {
+    /**
+     * The name of the factory's corresponding model.
+     *
+     * @var string
+     */
+    protected $model = \App\Models\Post::class;
+
     /**
      * Define the model's default state.
      *
@@ -19,6 +26,7 @@ class PostsFactory extends Factory
         return [
             'title' => $this->faker->sentence,
             'content' => $this->faker->paragraph,
+            'image' => $this->faker->imageUrl(800, 600, 'nature'),
             'user_id' => function () {
                 return \App\Models\User::inRandomOrder()->take(3)->get()->random()->id;
             }
