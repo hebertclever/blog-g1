@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Posts;
+use App\Models\Post;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -12,7 +12,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        return Posts::all();
+        return Post::all();
     }
 
     /**
@@ -30,7 +30,7 @@ class PostController extends Controller
     {
         $data = $request->all();
 
-        $post = Posts::create($data);
+        $post = Post::create($data);
 
         return $post;
     }
@@ -40,7 +40,7 @@ class PostController extends Controller
      */
     public function show(string $id)
     {
-        $post = Posts::findOrFail($id);
+        $post = Post::findOrFail($id);
         return $post;
     }
 
@@ -57,7 +57,7 @@ class PostController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $post = Posts::findOrFail($id);
+        $post = Post::findOrFail($id);
 
         $data = $request->all();
 
@@ -77,7 +77,7 @@ class PostController extends Controller
      */
     public function destroy(string $id)
     {
-        $post = Posts::findOrFail($id);
+        $post = Post::findOrFail($id);
         $post->delete();
 
         return response()->json([], 204);
