@@ -61,9 +61,6 @@ class CommentController extends Controller
 
         $data = $request->all();
 
-        // Este trecho de código, assim como no PostController, parece estar deslocado.
-        // É improvável que um "comment" tenha um campo de senha.
-        // Este trecho provavelmente deve ser removido.
         if ($request->password) {
             $data["password"] = bcrypt($request->password);
         }

@@ -19,12 +19,11 @@ class CommentsFactory extends Factory
         return [
             'content' => $this->faker->paragraph,
             'user_id' => function () {
-                return \App\Models\User::factory()->create()->id;
+                return \App\Models\User::inRandomOrder()->take(3)->get()->random()->id;
             },
             'post_id' => function () {
-                return \App\Models\Post::factory()->create()->id;
+                return \App\Models\Post::inRandomOrder()->first()->id;
             },
-
         ];
     }
 }

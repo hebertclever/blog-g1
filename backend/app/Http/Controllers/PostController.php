@@ -61,8 +61,6 @@ class PostController extends Controller
 
         $data = $request->all();
 
-        // Note que este controller parece ter código relacionado a autenticação de usuários (como password hashing).
-        // Este código provavelmente não deveria estar aqui, a menos que "posts" tenham uma senha.
         if ($request->password) {
             $data["password"] = bcrypt($request->password);
         }

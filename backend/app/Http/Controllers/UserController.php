@@ -23,11 +23,10 @@ class UserController extends Controller
         $validatedData = $request->validate([
             'name' => 'required|max:255',
             'email' => 'required|email|unique:users',
-            'password' => 'required|min:6',  // Adicionando regra de validação para senha
-            // ... outras regras de validação
+            'password' => 'required|min:6',  // Adding password validation rule
         ]);
 
-        // Criptografar senha antes de salvar
+        // Encrypt password before saving
         $validatedData['password'] = bcrypt($validatedData['password']);
 
         $user = User::create($validatedData);
@@ -53,8 +52,7 @@ class UserController extends Controller
 
         $validatedData = $request->validate([
             'name' => 'sometimes|required|max:255',
-            'email' => 'sometimes|required|email|unique:users,email,' . $user->id, // Evitar conflito com o próprio e-mail do usuário
-
+            'email' => 'sometimes|required|email|unique:users,email,' . $user->id, // Avoid conflict with the user's own email
         ]);
 
         if ($request->filled('password')) {
