@@ -11,11 +11,11 @@ class Post extends Model
 
     public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'user_id');
     }
 
-    public function post()
+    public function comments()
     {
-        return $this->belongsTo(Post::class);
+        return $this->hasMany(Comment::class);
     }
 }
