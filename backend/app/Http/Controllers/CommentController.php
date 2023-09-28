@@ -29,7 +29,7 @@ class CommentController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-
+        
         $comment = Comment::create($data);
 
         return $comment;
@@ -40,7 +40,7 @@ class CommentController extends Controller
      */
     public function show(string $id)
     {
-        $comment = Comment::findOrFail($id);
+        $comment = Comment::with('user', 'post')->findOrFail($id);
         return $comment;
     }
 
