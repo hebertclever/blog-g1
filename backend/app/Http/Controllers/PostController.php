@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\posts;
+use App\Models\Posts;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -12,7 +12,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        return posts::all();
+        return Posts::all();
     }
 
     /**
@@ -30,11 +30,9 @@ class PostController extends Controller
     {
         $data = $request->all();
 
-        $data["password"] = bcrypt($request->password);
+        $post = Posts::create($data);
 
-        $posts = posts::create($data);
-
-        return $posts;
+        return $post;
     }
 
     /**
@@ -42,8 +40,8 @@ class PostController extends Controller
      */
     public function show(string $id)
     {
-        $posts = posts::findOrFail($id);
-        return $posts;
+        $post = Posts::findOrFail($id);
+        return $post;
     }
 
     /**
@@ -59,17 +57,19 @@ class PostController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $posts = posts::findOrFail($id);
+        $post = Posts::findOrFail($id);
 
         $data = $request->all();
 
+        // Note que este controller parece ter código relacionado a autenticação de usuários (como password hashing).
+        // Este código provavelmente não deveria estar aqui, a menos que "posts" tenham uma senha.
         if ($request->password) {
             $data["password"] = bcrypt($request->password);
         }
 
-        $posts->update($data);
+        $post->update($data);
 
-        return $posts;
+        return $post;
     }
 
     /**
@@ -77,8 +77,8 @@ class PostController extends Controller
      */
     public function destroy(string $id)
     {
-        $posts = posts::findOrFail($id);
-        $posts->delete();
+        $post = Posts::findOrFail($id);
+        $post->delete();
 
         return response()->json([], 204);
     }

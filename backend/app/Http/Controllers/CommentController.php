@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\comments;
+use App\Models\Comments;
 use Illuminate\Http\Request;
 
 class CommentController extends Controller
@@ -12,7 +12,7 @@ class CommentController extends Controller
      */
     public function index()
     {
-        return comments::all();
+        return Comments::all();
     }
 
     /**
@@ -30,9 +30,7 @@ class CommentController extends Controller
     {
         $data = $request->all();
 
-        $data["password"] = bcrypt($request->password);
-
-        $comment = comments::create($data);
+        $comment = Comments::create($data);
 
         return $comment;
     }
@@ -42,7 +40,7 @@ class CommentController extends Controller
      */
     public function show(string $id)
     {
-        $comment = comments::findOrFail($id);
+        $comment = Comments::findOrFail($id);
         return $comment;
     }
 
@@ -59,10 +57,13 @@ class CommentController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $comment = comments::findOrFail($id);
+        $comment = Comments::findOrFail($id);
 
         $data = $request->all();
 
+        // Este trecho de código, assim como no PostController, parece estar deslocado.
+        // É improvável que um "comment" tenha um campo de senha.
+        // Este trecho provavelmente deve ser removido.
         if ($request->password) {
             $data["password"] = bcrypt($request->password);
         }
@@ -77,7 +78,7 @@ class CommentController extends Controller
      */
     public function destroy(string $id)
     {
-        $comment = comments::findOrFail($id);
+        $comment = Comments::findOrFail($id);
         $comment->delete();
 
         return response()->json([], 204);

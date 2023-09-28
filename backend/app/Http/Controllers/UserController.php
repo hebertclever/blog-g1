@@ -16,23 +16,21 @@ class UserController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
     {
-        $data = $request->all();
+        $validatedData = $request->validate([
+            'name' => 'required|max:255',
+            'email' => 'required|email|unique:users',
+            'password' => 'required|min:6',  // Adicionando regra de validação para senha
+            // ... outras regras de validação
+        ]);
 
-        $data["password"] = bcrypt($request->password);
+        // Criptografar senha antes de salvar
+        $validatedData['password'] = bcrypt($validatedData['password']);
 
-        $user = User::create($data);
+        $user = User::create($validatedData);
 
         return $user;
     }
@@ -47,27 +45,23 @@ class UserController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
      * Update the specified resource in storage.
      */
     public function update(Request $request, string $id)
     {
         $user = User::findOrFail($id);
 
-        $data = $request->all();
+        $validatedData = $request->validate([
+            'name' => 'sometimes|required|max:255',
+            'email' => 'sometimes|required|email|unique:users,email,' . $user->id, // Evitar conflito com o próprio e-mail do usuário
 
-        if ($request->password) {
-            $data["password"] = bcrypt($request->password);
+        ]);
+
+        if ($request->filled('password')) {
+            $validatedData['password'] = bcrypt($request->password);
         }
 
-        $user->update($data);
+        $user->update($validatedData);
 
         return $user;
     }
