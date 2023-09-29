@@ -1,8 +1,7 @@
 'use client'
 import { useEffect, useState } from 'react';
 import Image from 'next/image'
-
-
+import { formatDateBR, formatDateUS } from '../../../utils/formatDate'
 
 
 export default function BlogPosts() {
@@ -41,11 +40,11 @@ export default function BlogPosts() {
                                 <Image 
                                     src={post.image} 
                                     alt={`Imagem de ${post.title}`} 
-                                    width={500} 
+                                    width={600} 
                                     height={500} 
                                 />
                             )}
-                            <p className='text-gray-500 mb-2'>{post.created_at}</p>
+                            <p className='text-gray-500 mb-2'>{formatDateUS(post.created_at)}</p>
                             <h3 className='font-urbanist text-2xl font-bold leading-relaxed mb-2'>{post.title}</h3>
                             <p>{post.content.substring(0, 100)}...</p> 
                         </li>
@@ -62,7 +61,7 @@ export default function BlogPosts() {
                                         alt={post.title}
                                         className='mr-2'
                                         style={
-                                            { width: '50px', height: '50px' } 
+                                            { width: '200px', height: '160px' } 
                                         }
                                     />
                                 )}
