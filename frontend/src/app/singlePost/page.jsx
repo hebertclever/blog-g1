@@ -5,8 +5,25 @@ import { FaInstagram } from "react-icons/fa";
 const BlogPage = () => {
   return (
     <div className="w-screen h-screen flex flex-col px-5">
-      
-      
+      {/* HEADER */}
+
+      <header className="border h-12 w-full flex items-center justify-between">
+        <div className="w-28">
+          <nav className="border flex items-center">
+            <div className="h-8 w-8 rounded-[50%] flex justify-center items-center bg-blue-600 text-white font-semibold text-lg">
+              C
+            </div>
+            <span className="ml-2 font-semibold text-lg">coca</span>
+          </nav>
+        </div>
+
+        <div>
+          <button className="w-20 h-8 rounded-md text-sm font-semibold bg-[#F2F4FC]">
+            Sign In
+          </button>
+        </div>
+      </header>
+      {/* ------------------------- */}
 
       <section className="w-full h-auto flex flex-col items-center mt-24">
         <span>Jul 20, 2022</span>
@@ -58,7 +75,71 @@ const BlogPage = () => {
         </div>
       </section>
 
-      
+      <footer className="w-[90%] self-center h-[605px] flex flex-col ">
+        <div className="w-full flex justify-between items-center">
+          <div className="h-10 w-10 rounded-[50%] flex justify-center items-center bg-blue-600 text-white font-semibold text-lg">
+            C
+          </div>
+
+          <div className="flex items-center gap-5">
+            <span className="text-[#808D9E]">Ready to get started?</span>
+            <button className="w-[175px] h-[48px] bg-blue-600 text-white font-semibold rounded-lg">
+              Get Started
+            </button>
+          </div>
+        </div>
+
+        <div className="bg-[#E9ECF2] w-full h-[1px] mt-5"></div>
+
+        <div className="w-full flex">
+          <div className="flex flex-col">
+            <h3>Subscribe to our newsletter</h3>
+            <div className="flex w-[289px] h-[51px]">
+              <input
+                type="text"
+                placeholder="Email address"
+                className=" border-bottom px-2"
+              />
+              <button className="w-[50px] bg-blue-600 rounded-md text-white">{">"}</button>
+            </div>
+          </div>
+
+          <div className="flex flex-col">
+            <span className="text-blue-600">Services</span>
+
+            <span>Email Marketing</span>
+            <span>Campaigns</span>
+            <span>Branding</span>
+            <span>Offline</span>
+          </div>
+
+          <div className="flex flex-col">
+            <span className="text-blue-600 font-semibold">About</span>
+
+            <span>Our Story</span>
+            <span>Benefits</span>
+            <span>Tearn</span>
+            <span>Careers</span>
+          </div>
+
+          <div className="flex flex-col">
+            <span className="text-blue-600 font-semibold">Help</span>
+
+            <span>FAQs</span>
+            <span>Contact Us</span>
+          </div>
+        </div>
+
+        <div className="w-full flex items-center justify-between">
+          <p>©2022 - Coca by Sans Design</p>
+
+          <div className="flex gap-5">
+            <GrFacebookOption  className=""/>
+            <IoLogoTwitter />
+            <FaInstagram />
+          </div>
+        </div>
+      </footer>
     </div>
   );
 };
