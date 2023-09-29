@@ -49,7 +49,7 @@ export default function BlogPosts() {
                                         height={500}
                                     />
                                 )}
-                                <p className='text-gray-300 mb-4 mt-6 font-semibold'>{formatDateUS(post.created_at)}</p>
+                                <p className='text-gray-400 mb-4 mt-6 font-semibold'>{formatDateUS(post.created_at)}</p>
                                 <h3 className='font-urbanist text-2xl font-bold leading-relaxed mb-2'>{post.title}</h3>
                                 <p>{post.content.substring(0, 100)}...</p>
                             </li>
@@ -73,7 +73,7 @@ export default function BlogPosts() {
                                         />
                                     )}
                                     <div>
-                                        <p className='text-gray-300 mb-2 font-semibold'>{formatDateUS(post.created_at)}</p>
+                                        <p className='text-gray-400 mb-2 font-semibold'>{formatDateUS(post.created_at)}</p>
                                         <h3 className='font-urbanist text-xl font-bold leading-relaxed mb-2'>{post.title}</h3>
                                     </div>
                                 </div>
