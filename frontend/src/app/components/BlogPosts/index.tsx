@@ -32,6 +32,7 @@ const BlogPosts: React.FC<BlogPostsProps> = ({ posts, isLoading }) => {
                                         alt={`Imagem de ${post.title}`}
                                         width={600}
                                         height={500}
+                                        className='image'
                                     />
                                 )}
                                 <p className='text-gray-400 mb-4 mt-6 font-semibold'>{formatDateUS(post.created_at)}</p>
