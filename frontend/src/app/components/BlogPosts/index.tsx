@@ -30,57 +30,65 @@ export default function BlogPosts() {
     }
 
     return (
-        <div className='flex justify-center items-center min-h-screen bg-gray-100'>
-            <div className='flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 w-full max-w-5xl p-4'>
-                
-                <ul className='w-full sm:w-1/2'>
-                    {posts.slice(0, 1).map(post => (
-                        <li key={post.id}>
-                            {post.image && (
-                                <Image 
-                                    src={post.image} 
-                                    alt={`Imagem de ${post.title}`} 
-                                    width={600} 
-                                    height={500} 
-                                />
-                            )}
-                            <p className='text-gray-500 mb-2'>{formatDateUS(post.created_at)}</p>
-                            <h3 className='font-urbanist text-2xl font-bold leading-relaxed mb-2'>{post.title}</h3>
-                            <p>{post.content.substring(0, 100)}...</p> 
-                        </li>
-                    ))}
-                </ul>
+        <div className='flex justify-center min-h-screen pt-10 bg-gray-100'>
+            <div className='max-w-5xl p-4'>
+                <div className='mb-4 '>
+                    <p className='mb-2 text-blue-400 font-bold'>NEWS & ARTICLES</p>
+                    <h1 className='text-6xl font-bold'>Blog & Article</h1>
+                </div>
     
-                <ul className='w-full sm:w-1/2'>
-                    {posts.slice(0, 3).map((post, index) => (
-                        <li key={post.id} className='mb-6'>
-                            <div className='flex items-center mb-2'>
+                <div className='flex space-x-4 w-full'>
+                    <ul className='flex-1'>
+                        {posts.slice(0, 1).map(post => (
+                            <li key={post.id}>
                                 {post.image && (
-                                    <img
+                                    <Image className='image'
                                         src={post.image}
-                                        alt={post.title}
-                                        className='mr-2'
-                                        style={
-                                            { width: '200px', height: '160px' } 
-                                        }
+                                        alt={`Imagem de ${post.title}`}
+                                        width={600}
+                                        height={500}
                                     />
                                 )}
-                                <div>
-                                    <p className='text-gray-500 mb-2'>{post.created_at}</p>
-                                    <h3 className='font-urbanist text-xl font-bold leading-relaxed mb-2'>{post.title}</h3>
+                                <p className='text-gray-300 mb-4 mt-6 font-semibold'>{formatDateUS(post.created_at)}</p>
+                                <h3 className='font-urbanist text-2xl font-bold leading-relaxed mb-2'>{post.title}</h3>
+                                <p>{post.content.substring(0, 100)}...</p>
+                            </li>
+                        ))}
+                    </ul>
+    
+                    <ul className='flex-1'>
+                        {posts.slice(0, 3).map((post, index) => (
+                            <li key={post.id} className='mb-6'>
+                                <div className='flex items-center mb-2'>
+                                    {post.image && (
+                                        <Image
+                                            src={post.image}
+                                            alt={`Imagem de ${post.title}`}
+                                            width={600}
+                                            height={500}
+                                            className='mr-2 image'
+                                            style={
+                                                { width: '200px', height: '160px' }
+                                            }
+                                        />
+                                    )}
+                                    <div>
+                                        <p className='text-gray-300 mb-2 font-semibold'>{formatDateUS(post.created_at)}</p>
+                                        <h3 className='font-urbanist text-xl font-bold leading-relaxed mb-2'>{post.title}</h3>
+                                    </div>
                                 </div>
-                            </div>
-                        </li>
-                    ))}
-                </ul>
-                
+                            </li>
+                        ))}
+                    </ul>
+                </div>
             </div>
         </div>
     );
     
-    
-    
-    
-    
+
+
+
+
+
 
 }
