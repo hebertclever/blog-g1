@@ -29,7 +29,7 @@ const BlogPage = () => {
           </p>
 
           <div className="w-full bg-[#B1E5FC] mt-10 p-8 px-12">
-            <p className="font-semibold italic text-[20px] ">
+            <p className="text-[#1D1E25] font-semibold italic text-[20px] ">
               “There are many variations of passages of Lorem Ipsum available,
               but the majority have suffered alteration in some form, by
               injected humour”
