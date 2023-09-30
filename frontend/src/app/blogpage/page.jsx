@@ -1,21 +1,22 @@
-
 const BlogPage = () => {
   return (
-    <div className="w-screen h-screen flex flex-col px-5">
-      <section className="w-full h-auto flex flex-col items-center mt-24">
-        <span>Jul 20, 2022</span>
-        <p>Consectures Dummy Content Velit officia cons is enim velit mollit</p>
-
-        <div className="w-[1127px] h-[507px] border">
+    <div className="w-screen h-auto flex flex-col px-5">
+      <section className="w-full h-auto flex flex-col items-center mt-24 mb-32">
+        <span className="text-[#808D9E] text-[36px] font-semibold">
+          Jul 20, 2022
+        </span>
+        <p className="w-[1200px] font-semibold text-[#1D1E25] text-[72px] text-center mb-20">
+          Consectures Dummy Content Velit officia cons is enim velit mollit
+        </p>
+        <div className="w-[1127px] h-[507px]  bg-[#E9ECF2] rounded-md">
           <img src="" alt="" />
         </div>
-
-        <div className="w-[962px] border h-auto flex flex-col">
-          <h3>
+        <div className="w-[962px] h-auto flex flex-col">
+          <h3 className="text-[#1D1E25] font-semibold text-[36px] mt-12">
             The point of using Lorem Ipsum is that it has a more-or-less normal
             distribution of letters, as opposed to using 'Content here
           </h3>
-          <p>
+          <p className="text-[#1D1E25] font-[500] text-[20px] mt-10">
             It is a long established fact that a reader will be distracted by
             the readable content of a page when looking at its layout. The point
             of using Lorem Ipsum is that it has a more-or-less normal
@@ -27,15 +28,15 @@ const BlogPage = () => {
             years, sometimes by accident, sometimes on purpose.
           </p>
 
-          <div className="w-full border border-blue-500">
-            <p>
+          <div className="w-full bg-[#B1E5FC] mt-10 p-8 px-12">
+            <p className="font-semibold italic text-[20px] ">
               “There are many variations of passages of Lorem Ipsum available,
               but the majority have suffered alteration in some form, by
               injected humour”
             </p>
           </div>
 
-          <p>
+          <p className="text-[#1D1E25] font-[500] text-[20px] mt-10">
             Contrary to popular belief, Lorem Ipsum is not simply random text.
             It has roots in a piece of classical Latin literature from 45 BC,
             making it over 2000 years old. Richard McClintock, a Latin professor
@@ -50,9 +51,10 @@ const BlogPage = () => {
             amet..", comes from a line in section 1.10.32.
           </p>
         </div>
+              
       </section>
     </div>
   );
 };
 
-export default BlogPage;
+export default BlogPage;
