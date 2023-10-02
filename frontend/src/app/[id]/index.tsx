@@ -2,9 +2,9 @@ import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 
 const Post = () => {
-  const router = useRouter();
-  const { id } = router.query;
-  const [post, setPost] = useState(null);
+  const router = useRouter()
+  const { id } = router.query
+  const [post, setPost]:any = useState(null)
 
   useEffect(() => {
     async function fetchPost() {
