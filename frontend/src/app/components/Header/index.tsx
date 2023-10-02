@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const Navbar = () => {
   return (
-    <nav className="flex items-center	w-[100%] justify-between px-[20px] max-w-[1100px] mx-[auto] pt-[10px]">
+    <header className="flex items-center	w-[100%] justify-between px-[20px] max-w-[1100px] mx-[auto] pt-[10px]">
       <Link href="/">
         <img
           src="./blog-logos_transparent.png"
@@ -30,7 +30,7 @@ const Navbar = () => {
           <rect x="12" y="14" width="16" height="2" rx="1" fill="#1D1E25" />
         </svg>
       </div>
-    </nav>
+    </header>
   );
 };
 

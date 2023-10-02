@@ -1,10 +1,11 @@
-'use client'
-import { useState, useEffect } from 'react';
+"use client";
+import { useState, useEffect } from "react";
 import BlogPosts from "./components/BlogPosts";
+import NewPosts from "./components/NewPosts";
 
 export default function Home() {
-    const [posts, setPosts] = useState([]);
-    const [isLoading, setIsLoading] = useState(true);
+  const [posts, setPosts] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         async function fetchPosts() {
@@ -19,12 +20,13 @@ export default function Home() {
             }
         }
 
-        fetchPosts();
-    }, []);
+    fetchPosts();
+  }, []);
 
-    return (
-        <div>
-            <BlogPosts posts={posts} isLoading={isLoading} />
-        </div>
-    );
+  return (
+    <section>
+      <BlogPosts posts={posts} isLoading={isLoading} />
+      <NewPosts posts={posts} isLoading={isLoading} />
+    </section>
+  );
 }
