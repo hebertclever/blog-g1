@@ -1,10 +1,9 @@
 "use client";
-import { useRouter } from "next/router";
+import { useParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
 
 const Post = () => {
-  const router = useRouter();
-  const { id } = router.query;
+  const { id } = useParams();
   const [post, setPost]: any = useState(null);
 
   useEffect(() => {
