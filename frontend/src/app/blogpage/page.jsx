@@ -5,13 +5,13 @@ const BlogPage = () => {
         <span className="text-[#808D9E] text-[36px] font-semibold">
           Jul 20, 2022
         </span>
-        <p className="w-[1200px] font-semibold text-[#1D1E25] text-[72px] text-center mb-20">
+        <p className="w-[350px] md:w-[1200px] font-semibold text-[#1D1E25] text-[40px] md:text-[72px] text-center mb-20">
           Consectures Dummy Content Velit officia cons is enim velit mollit
         </p>
-        <div className="w-[1127px] h-[507px]  bg-[#E9ECF2] rounded-md">
+        <div className="w-full max-w-[1127px] h-[507px]  bg-[#E9ECF2] rounded-md">
           <img src="" alt="" />
         </div>
-        <div className="w-[962px] h-auto flex flex-col">
+        <div className="max-w-[962px] h-auto flex flex-col">
           <h3 className="text-[#1D1E25] font-semibold text-[36px] mt-12">
             The point of using Lorem Ipsum is that it has a more-or-less normal
             distribution of letters, as opposed to using 'Content here
