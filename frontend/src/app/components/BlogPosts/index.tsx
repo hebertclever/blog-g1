@@ -11,7 +11,7 @@ type BlogPostsProps = {
 
 const BlogPosts: React.FC<BlogPostsProps> = ({ posts, isLoading }) => {
     if (isLoading) {
-        return <div className='text-center p-[20px]'>Carregando postagens...</div>;
+        return <div className='text-center p-[20px]'>Loading posts...</div>;
     }
 
     return (
