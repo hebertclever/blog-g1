@@ -32,7 +32,7 @@ const Page = () => {
         <div className="flex justify-center font-bold text-blue-400 pb-3 pt-12">
           <h3 className="text-xs">NEWS & ARTICLE</h3>
         </div>
-        <div className="flex justify-center pb-12">
+        <div className="flex justify-center pb-24">
           <h1 className="flex text-4xl font-bold">Blog & Article</h1>
         </div>
         <div className="lg:px-80">
@@ -45,7 +45,7 @@ const Page = () => {
                 <div className="w-28 h-20 pr-5 pt-8 pb-28">
                   <img src={item.image} alt={item.title} className="image" />
                 </div>
-                <div className="pt-8 lg:flex">
+                <div className="pt-8 lg:flex lg:justify-between lg:flex-grow">
                   <div>
                   <p className="text-gray-400 pb-2">
                     {new Date(item.created_at).toLocaleDateString("en-US", {
