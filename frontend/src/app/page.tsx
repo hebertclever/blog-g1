@@ -14,7 +14,7 @@ export default function Home() {
                 setPosts(data);
                 setIsLoading(false);
             } catch (error) {
-                console.error("Erro ao buscar as postagens:", error);
+                console.error("Error when searching for posts:", error);
                 setIsLoading(false);
             }
         }
