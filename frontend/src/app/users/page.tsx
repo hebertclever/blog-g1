@@ -58,7 +58,7 @@ const Page = () => {
                     <p className="pb-7 font-bold">{item.title}</p>
                   </div>
                   <div className="pb-8 text-blue-400 flex items-center">
-                    <Link href={`/post/${item.id}`}>Read</Link>
+                    <Link href={`/${item.id}`}>Read</Link>
                   </div>
                 </div>
               </div>
