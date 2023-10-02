@@ -11,11 +11,11 @@ type BlogPostsProps = {
 
 const BlogPosts: React.FC<BlogPostsProps> = ({ posts, isLoading }) => {
     if (isLoading) {
-        return <div>Carregando postagens...</div>;
+        return <div className='text-center p-[20px]'>Carregando postagens...</div>;
     }
 
     return (
-        <div className='flex justify-center min-h-screen pt-10 bg-gray-100'>
+        <div className='flex justify-center min-h-screen pt-10 bg-[white]'>
             <div className='max-w-5xl p-4'>
                 <div className='mb-4'>
                     <p className='mb-2 text-blue-400 font-bold'>NEWS & ARTICLES</p>
@@ -30,6 +30,7 @@ const BlogPosts: React.FC<BlogPostsProps> = ({ posts, isLoading }) => {
                                     <Image
                                         src={post.image}
                                         alt={`Imagem de ${post.title}`}
+                                        className='mr-2 image'
                                         width={600}
                                         height={500}
                                     />
@@ -42,7 +43,7 @@ const BlogPosts: React.FC<BlogPostsProps> = ({ posts, isLoading }) => {
                     </ul>
 
                     <ul className='flex-1'>
-                        {posts.slice(0, 3).map(post => (
+                        {posts.slice(1, 4).map(post => (
                             <li key={post.id} className='mb-6'>
                                 <div className='flex items-center mb-2'>
                                     {post.image && (
