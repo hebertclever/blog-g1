@@ -2,6 +2,7 @@
 
 import { useParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
+import { formatDateUS } from "@/utils/formatDate";
 
 const Post = () => {
   const { id } = useParams();
@@ -26,14 +27,7 @@ const Post = () => {
       {post ? (
         <div className="w-screen h-auto flex flex-col px-5">
           <section className="w-full h-auto flex flex-col items-center mt-24 mb-32">
-            <div className="text-gray-400 text-4xl font-semibold">
-              {post.date
-                ? new Date(post.date).toLocaleDateString("en-US", {
-                    month: "short",
-                    day: "numeric",
-                    year: "numeric",
-                  })
-                : "Invalid date"}
+            <div className="text-gray-400 text-4xl font-semibold">{formatDateUS(post.created_at)}
             </div>
             <h1 className="w-[350px] md:w-[1200px] font-semibold text-[#1D1E25] text-[40px] md:text-[72px] text-center mb-20">
               {post.title}
