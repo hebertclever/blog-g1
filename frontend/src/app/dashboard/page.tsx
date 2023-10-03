@@ -1,5 +1,6 @@
 import React from "react";
 import LatestPost from "../components/LatestPost";
+import TopPost from "../components/TopPost";
 
 interface DashboardProps {}
 
@@ -14,7 +15,7 @@ const Dashboard: React.FC<DashboardProps> = () => {
           <LatestPost />
         </div>
         <div className="h-full w-[20%] max-w-[250px] border">
-          <LatestPost />
+          <TopPost />
         </div>
       </div>
     </div>
