@@ -10,10 +10,11 @@ class CommentController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(string $post)
     {
-        return Comment::all();
+        return Comment::where('post_id', $post)->get();
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -26,14 +27,16 @@ class CommentController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request, string $post)
     {
         $data = $request->all();
-        
+        $data['post_id'] = $post;
+
         $comment = Comment::create($data);
 
         return $comment;
     }
+
 
     /**
      * Display the specified resource.
@@ -55,27 +58,34 @@ class CommentController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, string $post, string $id)
     {
-        $comment = Comment::findOrFail($id);
+        $comment = Comment::where('post_id', $post)->findOrFail($id);
 
         $data = $request->all();
 
-        if ($request->password) {
-            $data["password"] = bcrypt($request->password);
+        // Aqui você deve atualizar apenas os campos relevantes do comentário.
+        // Por exemplo, se você tiver campos como "content" no seu modelo Comment,
+        // você pode atualizá-los assim:
+
+        if (isset($data['content'])) {
+            $comment->content = $data['content'];
         }
 
-        $comment->update($data);
+        // Continue fazendo as atualizações dos campos relevantes aqui...
+
+        $comment->save();
 
         return $comment;
     }
 
+
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(string $post, string $id)
     {
-        $comment = Comment::findOrFail($id);
+        $comment = Comment::where('post_id', $post)->findOrFail($id);
         $comment->delete();
 
         return response()->json([], 204);

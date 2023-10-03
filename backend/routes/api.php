@@ -34,8 +34,9 @@ Route::get("/posts/{id}", [PostController::class, "show"]);
 Route::patch("/posts/{id}", [PostController::class, "update"]);
 Route::delete("/posts/{id}", [PostController::class, "destroy"]);
 
-Route::get("/comment", [CommentController::class, "index"]);
-Route::post("/comment", [CommentController::class, "store"]);
-Route::get("/comment/{id}", [CommentController::class, "show"]);
-Route::patch("/comment/{id}", [CommentController::class, "update"]);
-Route::delete("/comment/{id}", [CommentController::class, "destroy"]);
+Route::get("/comments", [CommentController::class, "index"]); // Rota para listar todos os comentários
+Route::post("/comments/{post_id}", [CommentController::class, "store"]); // Rota para criar um novo comentário
+Route::get("/comments/{id}", [CommentController::class, "show"]); // Rota para exibir um único comentário
+Route::patch("/comments/{id}", [CommentController::class, "update"]); // Rota para atualizar um comentário
+Route::delete("/comments/{id}", [CommentController::class, "destroy"]); // Rota para excluir um comentário
+

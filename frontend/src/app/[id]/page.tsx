@@ -1,6 +1,7 @@
 "use client";
 
 import { useParams } from "next/navigation";
+import CommentComponent from "../components/Comments";
 import React, { useEffect, useState } from "react";
 import { formatDateUS } from "@/utils/formatDate";
 
@@ -9,18 +10,18 @@ const Post = () => {
   const [post, setPost]: any = useState(null);
 
   useEffect(() => {
-    async function fetchPost() {
+    async function fetchPostAndComments() {
       if (id) {
-        const response = await fetch(`
-          ${process.env.NEXT_PUBLIC_API_URL}/posts/${id}
-        `);
-        const data = await response.json();
-        setPost(data);
+        const postResponse = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/posts/${id}`);
+        const postData = await postResponse.json();
+        
+        setPost(postData); // Define o estado 'post' com o objeto 'postData' completo
       }
     }
-
-    fetchPost();
+  
+    fetchPostAndComments();
   }, [id]);
+  
 
   return (
     <div>
@@ -52,7 +53,16 @@ const Post = () => {
       ) : (
         <p>Loading...</p>
       )}
+      <div className="max-w-[962px] h-auto flex flex-col">
+        {/* ... restante do código ... */}
+        <div className="mt-10">
+          <h2 className="text-xl font-bold">Comentários</h2>
+          {post && post.comments && post.comments.map(comment => <CommentComponent key={comment.id} comment={comment} />)}
+        </div>
+
+      </div>
     </div>
+
   );
 };
 
