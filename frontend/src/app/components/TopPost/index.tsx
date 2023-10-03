@@ -24,7 +24,7 @@ const TopPost: React.FC<TopPostProps> = () => {
   }, []);
 
   return (
-    <div className="w-full h-full flex flex-col items-center bg-white rounded-md">
+    <div className="w-full h-full flex flex-col items-center bg-white rounded-md px-1">
       <div className="w-full h-auto flex justify-between p-2 ">
         <h3 className="font-semibold">Top Posts</h3>
         <span className="font-semibold text-zinc-500 cursor-pointer">
