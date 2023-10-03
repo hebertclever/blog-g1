@@ -16,7 +16,7 @@ const Footer = () => {
         <div className="hidden md:flex gap-[20px] items-center">
           <p className="text-[#808D9E]">Ready to get started?</p>
           <a
-            href="#"
+            href="/register"
             className="text-white bg-[#2A85FF] px-[40px] py-[10px] rounded"
           >
             Get Started

@@ -14,7 +14,7 @@ const Navbar = () => {
       <div className="flex items-center gap-[20px]">
         <Link
           className="bg-[#F2F4FC] rounded-[50px] px-[20px] py-[7px]"
-          href="#"
+          href="/register"
         >
           sign in
         </Link>

@@ -7,6 +7,7 @@ const Page = () => {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [visible, setVisible] = useState(7);
+  const [newPost, setNewPost] = useState(false);
 
   useEffect(() => {
     async function fetchPosts() {
@@ -27,15 +28,80 @@ const Page = () => {
     fetchPosts();
   }, []);
 
+  const formSubmit = async (e: any) => {
+    try {
+      e.preventDefault();
+      const data = new FormData(e.target);
+      console.log(Object.fromEntries(data));
+      const response = await fetch("http://127.0.0.1:8000/api/posts", {
+        method: "POST",
+        body: JSON.stringify(Object.fromEntries(data)),
+      });
+      console.log(response);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   return (
     <div className="p-8">
       <div>
         <div className="flex justify-center font-bold text-blue-400 pb-3 pt-12">
           <h3 className="text-xs">NEWS & ARTICLE</h3>
         </div>
-        <div className="flex justify-center pb-24">
+        <div className="flex justify-center pb-10">
           <h1 className="flex text-4xl font-bold">Blog & Article</h1>
         </div>
+        <button
+          className="text-white bg-[#60b7fb] px-[90px] py-[10px] block mx-[auto] rounded mb-[20px]"
+          onClick={() => setNewPost((e) => !e)}
+        >
+          {!newPost ? "Add new Post" : "close"}
+        </button>
+        {newPost && (
+          <form className="grid w-[400px] mx-[auto]" onSubmit={formSubmit}>
+            <label htmlFor="title">Título:</label>
+            <input
+              type="text"
+              name="title"
+              id="title"
+              required
+              className="border px-2"
+            />
+
+            <label htmlFor="content">Conteúdo:</label>
+            <textarea
+              name="content"
+              id="content"
+              required
+              className="border px-1"
+            ></textarea>
+
+            <label htmlFor="image">Imagem:</label>
+            <input
+              type="file"
+              name="image"
+              id="image"
+              accept="image/*"
+            />
+
+            <label htmlFor="user_id">ID do Usuário:</label>
+            <input
+              type="number"
+              name="user_id"
+              id="user_id"
+              required
+              className="border"
+            />
+
+            <button
+              type="submit"
+              className="text-white bg-[#60b7fb] px-[90px] py-[10px] block mx-[auto] mt-[10px] rounded mb-[20px]"
+            >
+              Criar Post
+            </button>
+          </form>
+        )}
         <div className="lg:px-80">
           {isLoading ? (
             <p>Loading...</p>
@@ -44,7 +110,7 @@ const Page = () => {
             data.slice(0, visible).map((item: any) => (
               <div key={item.id} className="flex border-t-2">
                 <div className="w-28 h-20 pr-5 pt-8 pb-28">
-                  <img src={item.image} alt={item.title} className="image" />
+                  <img src={item.image ? item.image : ""} alt={item.title} className="image" />
                 </div>
                 <div className="pt-8 lg:flex lg:justify-between lg:flex-grow">
                   <div>
