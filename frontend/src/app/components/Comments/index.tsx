@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 
-const CommentComponent = ({ comment }) => {
+const CommentComponent = ({ comment }:any) => {
   const [replying, setReplying] = useState(false);
   const [newComment, setNewComment] = useState('');
 
-  const timeSince = (date) => {
+  const timeSince = (date:any) => {
     const seconds = Math.floor((new Date() - new Date(date)) / 1000);
     let interval = Math.floor(seconds / 31536000);
 

@@ -33,7 +33,7 @@ const LoginPage = () => {
         />
         <span>
           Do not you have an account yet?{" "}
-          <Link href="/registerpage" className="text-blue-500 underline">
+          <Link href="/register" className="text-blue-500 underline">
             Register
           </Link>
         </span>

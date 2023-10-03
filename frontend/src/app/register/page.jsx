@@ -41,8 +41,8 @@ const RegisterPage = () => {
           className="border h-12 bg-blue-500 mb-12 text-white mt-10"
         />
         <span>
-          Do you already have an account?{" "}
-          <Link href="/loginpage" className="text-blue-500 underline">
+          Do you already have an account?
+          <Link href="/login" className="text-blue-500 underline">
             Login
           </Link>
         </span>
