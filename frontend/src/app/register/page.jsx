@@ -31,12 +31,11 @@ const RegisterPage = () => {
         },
         body: JSON.stringify(formData),
       });
-      
 
       if (response.ok) {
         const data = await response.json();
         console.log(data.message);
-        
+
         router.push("/login");
       } else {
         console.error("Erro ao criar usuário");
