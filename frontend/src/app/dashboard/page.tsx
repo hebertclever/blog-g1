@@ -13,7 +13,9 @@ const Dashboard: React.FC<DashboardProps> = () => {
           <div className="w-full h-[60%] border border-green-500"></div>
           <LatestPost />
         </div>
-        <div className="h-full w-[20%] max-w-[250px] border"></div>
+        <div className="h-full w-[20%] max-w-[250px] border">
+          <LatestPost />
+        </div>
       </div>
     </div>
   );
