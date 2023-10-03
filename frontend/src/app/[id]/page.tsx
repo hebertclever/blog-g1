@@ -40,7 +40,7 @@ const Post = () => {
                 className="image w-full h-full object-cover"
               />
             </div>
-            <div className="max-w-[962px] h-auto flex flex-col">
+            <div className="max-w-[962px] h-auto flex flex-col mx-auto">
               <h3 className="text-[#1D1E25] font-semibold text-[36px] mt-12">
                 {post.content ? post.content.substring(0, 120) : ""}
               </h3>
@@ -49,11 +49,7 @@ const Post = () => {
               </div>
             </div>
           </section>
-        </div>
-      ) : (
-        <p>Loading...</p>
-      )}
-      <div className="max-w-[962px] h-auto flex flex-col">
+          <div className="max-w-[962px] h-auto flex flex-col mx-auto">
         {/* ... restante do código ... */}
         <div className="mt-10">
           <h2 className="text-xl font-bold">Comentários</h2>
@@ -61,6 +57,11 @@ const Post = () => {
         </div>
 
       </div>
+        </div>
+      ) : (
+        <p>Loading...</p>
+      )}
+      
     </div>
 
   );
