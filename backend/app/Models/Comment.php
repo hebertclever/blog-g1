@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class comment extends Model
 {
+    protected $fillable = ['content', 'user_id', 'post_id'];
     use HasFactory;
 
     public function user()

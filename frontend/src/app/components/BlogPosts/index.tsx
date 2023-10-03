@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { formatDateBR, formatDateUS } from "../../../utils/formatDate";
+import { formatDateUS } from "../../../utils/formatDate";
 
 type BlogPostsProps = {
   posts: any[];
@@ -72,7 +72,7 @@ const BlogPosts: React.FC<BlogPostsProps> = ({ posts, isLoading }) => {
                       <h3 className="font-urbanist text-xl font-bold leading-relaxed mb-2 ml-6">
                         {post.title}
                       </h3>
-                      <p className="lg:hidden">
+                      <p className="lg:hidden ml-6">
                         {post.content.substring(0, 100)}...
                       </p>
                     </div>

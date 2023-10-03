@@ -1,6 +1,7 @@
 "use client";
 
 import { useParams } from "next/navigation";
+import CommentComponent from "../components/Comments";
 import React, { useEffect, useState } from "react";
 import { formatDateUS } from "@/utils/formatDate";
 
@@ -9,18 +10,18 @@ const Post = () => {
   const [post, setPost]: any = useState(null);
 
   useEffect(() => {
-    async function fetchPost() {
+    async function fetchPostAndComments() {
       if (id) {
-        const response = await fetch(`
-          ${process.env.NEXT_PUBLIC_API_URL}/posts/${id}
-        `);
-        const data = await response.json();
-        setPost(data);
+        const postResponse = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/posts/${id}`);
+        const postData = await postResponse.json();
+        
+        setPost(postData); // Define o estado 'post' com o objeto 'postData' completo
       }
     }
-
-    fetchPost();
+  
+    fetchPostAndComments();
   }, [id]);
+  
 
   return (
     <div>
@@ -39,7 +40,7 @@ const Post = () => {
                 className="image w-full h-full object-cover"
               />
             </div>
-            <div className="max-w-[962px] h-auto flex flex-col">
+            <div className="max-w-[962px] h-auto flex flex-col mx-auto">
               <h3 className="text-[#1D1E25] font-semibold text-[36px] mt-12">
                 {post.content ? post.content.substring(0, 120) : ""}
               </h3>
@@ -48,11 +49,21 @@ const Post = () => {
               </div>
             </div>
           </section>
+          <div className="max-w-[962px] h-auto flex flex-col mx-auto">
+        {/* ... restante do código ... */}
+        <div className="mt-10">
+          <h2 className="text-xl font-bold">Comentários</h2>
+          {post && post.comments && post.comments.map(comment => <CommentComponent key={comment.id} comment={comment} />)}
+        </div>
+
+      </div>
         </div>
       ) : (
         <p>Loading...</p>
       )}
+      
     </div>
+
   );
 };
 
