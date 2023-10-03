@@ -24,7 +24,7 @@ const TopPost: React.FC<TopPostProps> = () => {
   }, []);
 
   return (
-    <div className="w-full h-full flex flex-col items-center">
+    <div className="w-full h-full flex flex-col items-center bg-white rounded-md">
       <div className="w-full h-auto flex justify-between p-2 ">
         <h3 className="font-semibold">Top Posts</h3>
         <span className="font-semibold text-zinc-500 cursor-pointer">
@@ -34,7 +34,7 @@ const TopPost: React.FC<TopPostProps> = () => {
 
       <div className="w-[95%] h-[1px] bg-zinc-300" />
 
-      <div className="w-full h-[565px] border mt-3 overflow-hidden ">
+      <div className="w-full h-[565px] mt-3 overflow-hidden ">
         {data &&
           data.map((post, index) => (
             <div key={index} className="h-[120px] w-[250px]">

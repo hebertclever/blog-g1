@@ -24,7 +24,7 @@ const LatestPost: React.FC<LatestPostProps> = () => {
   }, []);
 
   return (
-    <div className="w-full h-[40%] flex flex-col items-center">
+    <div className="w-full h-[40%] flex flex-col items-center bg-white rounded-md">
       <div className="w-full h-auto flex justify-between p-2 ">
         <h3 className="font-semibold">Latest Posts</h3>
         <span className="font-semibold text-zinc-500 cursor-pointer">
