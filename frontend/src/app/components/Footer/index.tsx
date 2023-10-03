@@ -7,9 +7,9 @@ const Footer = () => {
         <Link href="/">
           <img
             className="mx-[auto] md:mx-[0] md:width-[70px]"
-            src="./blog-logos_transparent.png"
-            width="60"
-            height="60"
+            src="./images/logo-blogger.png"
+            width="200"
+            height="120"
             alt="logo"
           />
         </Link>

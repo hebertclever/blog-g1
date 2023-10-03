@@ -24,9 +24,10 @@ export default function Home() {
   }, []);
 
   return (
-    <section>
+    <section style={{ margin: '0' }}>
       <BlogPosts posts={posts} isLoading={isLoading} />
       <NewPosts posts={posts} isLoading={isLoading} />
     </section>
   );
+  
 }

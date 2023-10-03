@@ -34,7 +34,7 @@ const BlogPosts: React.FC<BlogPostsProps> = ({ posts, isLoading }) => {
                       src={post.image}
                       alt={`Imagem de ${post.title}`}
                       className="mr-2 image"
-                      width={600}
+                      width={800}
                       height={500}
                       className="image w-full"
                     />
@@ -61,10 +61,13 @@ const BlogPosts: React.FC<BlogPostsProps> = ({ posts, isLoading }) => {
                         src={post.image}
                         alt={`Imagem de ${post.title}`}
                         width={200}
-                        height={160}
-                        className="mr-2 image"
+                        height={200} 
+                        layout="fixed" 
+                        objectFit="cover" 
+                        className="mr-2 image rounded-lg"
                       />
                     )}
+
                     <div>
                       <p className="text-gray-400 mb-2 font-semibold ml-6">
                         {formatDateUS(post.created_at)}
@@ -80,7 +83,7 @@ const BlogPosts: React.FC<BlogPostsProps> = ({ posts, isLoading }) => {
                 </Link>
               </li>
             ))}
-            <div className="text-blue-400 flex items-center justify-center">
+            <div className="text-blue-400 flex items-center justify-center ml-6 text-semibold">
               <Link href={`/users`}>See more</Link>
             </div>
           </ul>

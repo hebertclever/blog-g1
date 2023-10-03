@@ -5,9 +5,9 @@ const Navbar = () => {
     <header className="flex items-center	w-[100%] justify-between px-[20px] max-w-[1100px] mx-[auto] pt-[10px]">
       <Link href="/">
         <img
-          src="./blog-logos_transparent.png"
-          width="70"
-          height="70"
+          src="./images/logo-blogger.png"
+          width="200"
+          height="120"
           alt="logo"
         />
       </Link>
