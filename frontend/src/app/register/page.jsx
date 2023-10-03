@@ -95,7 +95,7 @@ const RegisterPage = () => {
           Register
         </button>
         <span>
-          Do you already have an account?{" "}
+          Do you already have an account?
           <Link href="/login" className="text-blue-500 underline">
             Login
           </Link>

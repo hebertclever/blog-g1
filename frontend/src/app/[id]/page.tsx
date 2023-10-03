@@ -26,21 +26,22 @@ const Post = () => {
   useEffect(() => {
     async function fetchPostAndComments() {
       if (id) {
-        const postResponse = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/posts/${id}`);
+        const postResponse = await fetch(
+          `${process.env.NEXT_PUBLIC_API_URL}/posts/${id}`
+        );
         const postData = await postResponse.json();
-        
+
         setPost(postData); // Define o estado 'post' com o objeto 'postData' completo
       }
     }
-  
+
     fetchPostAndComments();
   }, [id]);
-  
 
   return (
     <div>
       {post ? (
-        <div className="w-screen h-auto flex flex-col px-5">
+        <div className="h-auto flex flex-col px-5">
           <section className="w-full h-auto flex flex-col items-center mt-24 mb-32">
             <div className="text-gray-400 text-2xl font-semibold">{formatDateUS(post.created_at)}
             </div>
@@ -64,21 +65,21 @@ const Post = () => {
             </div>
           </section>
           <div className="max-w-[962px] h-auto flex flex-col mx-auto">
-        {/* ... restante do código ... */}
-        <div className="mt-10">
-        <CommentForm postId={id} updateComments={updateComments} />
-          <h2 className="text-xl font-bold">Comentários</h2>
-          {post && post.comments && post.comments.map(comment => <CommentComponent key={comment.id} comment={comment} />)}
-        </div>
-
-      </div>
+            {/* ... restante do código ... */}
+            <div className="my-10 ">
+              <h2 className="text-xl font-bold">Comentários</h2>
+              {post &&
+                post.comments &&
+                post.comments.map((comment: any) => (
+                  <CommentComponent key={comment.id} comment={comment} />
+                ))}
+            </div>
+          </div>
         </div>
       ) : (
-        <p>Loading...</p>
+        <p className="text-center p-[20px]">Loading...</p>
       )}
-      
     </div>
-
   );
 };
 
