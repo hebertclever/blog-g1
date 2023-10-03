@@ -50,8 +50,8 @@ const LatestPost: React.FC<LatestPostProps> = () => {
                   <td className="px-2 py-2 flex gap-2">
                     <img
                       className="w-10 h-10"
-                      src={post.image} // Reemplaza con la URL de la imagen real desde tus datos
-                      alt={post.title} // Reemplaza con el título real desde tus datos
+                      src={post.image}
+                      alt={post.title}
                     />
                     <span className="md:w-[150px] lg:w-[200px]">
                       {post.title}

@@ -39,11 +39,7 @@ const TopPost: React.FC<TopPostProps> = () => {
           data.map((post, index) => (
             <div key={index} className="h-[120px] w-[250px]">
               <div className="px-2 py-2 flex gap-2">
-                <img
-                  className=" w-16 h-16"
-                  src={post.image} // Reemplaza con la URL de la imagen real desde tus datos
-                  alt={post.title} // Reemplaza con el título real desde tus datos
-                />
+                <img className=" w-16 h-16" src={post.image} alt={post.title} />
                 <span className="w-[150px] ">{post.title}</span>
                 <button className="h-5 w-16 rounded-sm text-sm bg-blue-400/80 text-white">
                   Review

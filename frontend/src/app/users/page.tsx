@@ -60,7 +60,7 @@ const Page = () => {
         </button>
         {newPost && (
           <form className="grid w-[400px] mx-[auto]" onSubmit={formSubmit}>
-            <label htmlFor="title">Título:</label>
+            <label htmlFor="title">Title:</label>
             <input
               type="text"
               name="title"
@@ -69,7 +69,7 @@ const Page = () => {
               className="border px-2"
             />
 
-            <label htmlFor="content">Conteúdo:</label>
+            <label htmlFor="content">Content:</label>
             <textarea
               name="content"
               id="content"
@@ -77,7 +77,7 @@ const Page = () => {
               className="border px-1"
             ></textarea>
 
-            <label htmlFor="image">Imagem:</label>
+            <label htmlFor="image">Image:</label>
             <input
               type="file"
               name="image"
@@ -85,7 +85,7 @@ const Page = () => {
               accept="image/*"
             />
 
-            <label htmlFor="user_id">ID do Usuário:</label>
+            <label htmlFor="user_id">User ID:</label>
             <input
               type="number"
               name="user_id"
@@ -98,7 +98,7 @@ const Page = () => {
               type="submit"
               className="text-white bg-[#60b7fb] px-[90px] py-[10px] block mx-[auto] mt-[10px] rounded mb-[20px]"
             >
-              Criar Post
+              Create Postv
             </button>
           </form>
         )}

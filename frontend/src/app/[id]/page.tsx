@@ -12,13 +12,10 @@ const Post = () => {
 
   const updateComments = (newComment) => {
     
-  // Crie uma cópia da lista de comentários existente e adicione o novo comentário
   const updatedComments = [...comments, newComment];
 
-  // Atualize o estado 'comments' com a nova lista de comentários
   setComments(updatedComments);
 
-  // Registre a data e hora da última atualização
   const currentDate = new Date();
   setLastUpdate(currentDate);
   };
@@ -31,7 +28,7 @@ const Post = () => {
         );
         const postData = await postResponse.json();
 
-        setPost(postData); // Define o estado 'post' com o objeto 'postData' completo
+        setPost(postData);
       }
     }
 
