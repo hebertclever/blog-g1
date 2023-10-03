@@ -64,7 +64,7 @@ const Post = () => {
           <div className="max-w-[962px] h-auto flex flex-col mx-auto">
             {/* ... restante do código ... */}
             <div className="my-10 ">
-              <h2 className="text-xl font-bold">Comentários</h2>
+              <h2 className="text-xl font-bold">Comments</h2>
               {post &&
                 post.comments &&
                 post.comments.map((comment: any) => (
