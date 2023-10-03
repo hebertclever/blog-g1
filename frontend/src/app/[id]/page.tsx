@@ -2,12 +2,26 @@
 
 import { useParams } from "next/navigation";
 import CommentComponent from "../components/Comments";
+import CommentForm from "../components/Comments/CommentForm";
 import React, { useEffect, useState } from "react";
 import { formatDateUS } from "@/utils/formatDate";
 
 const Post = () => {
   const { id } = useParams();
   const [post, setPost]: any = useState(null);
+
+  const updateComments = (newComment) => {
+    
+  // Crie uma cópia da lista de comentários existente e adicione o novo comentário
+  const updatedComments = [...comments, newComment];
+
+  // Atualize o estado 'comments' com a nova lista de comentários
+  setComments(updatedComments);
+
+  // Registre a data e hora da última atualização
+  const currentDate = new Date();
+  setLastUpdate(currentDate);
+  };
 
   useEffect(() => {
     async function fetchPostAndComments() {
@@ -29,10 +43,9 @@ const Post = () => {
       {post ? (
         <div className="h-auto flex flex-col px-5">
           <section className="w-full h-auto flex flex-col items-center mt-24 mb-32">
-            <div className="text-gray-400 text-4xl font-semibold">
-              {formatDateUS(post.created_at)}
+            <div className="text-gray-400 text-2xl font-semibold">{formatDateUS(post.created_at)}
             </div>
-            <h1 className="w-[350px] md:w-[1200px] font-semibold text-[#1D1E25] text-[40px] md:text-[72px] text-center mb-20">
+            <h1 className="w-[350px] md:w-[1200px] font-bold text-[#1D1E25] text-[25px] md:text-[50px] text-center mb-8">
               {post.title}
             </h1>
             <div className="w-full max-w-[1127px] h-[507px] bg-[#E9ECF2] rounded-md">
